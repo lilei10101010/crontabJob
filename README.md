@@ -1,3 +1,9 @@
+![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/login.png?raw=true)
+![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/systemIndex.png?raw=true)
+![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/addCrontab.png?raw=true)
+![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/addlisten.png?raw=true)
+![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/listen.png?raw=true)
+
 服务器设置
 1.默认监听9527端口,在main.go文件更改
 2.时区默认设置为北京时间，在main.go文件TIME_ZONE更改

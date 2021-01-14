@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0043b50-d72b-4c5b-b26c-f4c16e94c5d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/image/addCrontab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/addlisten.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/listen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/systemIndex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/systemLog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="104">
+              <caret line="4" column="102" selection-start-line="4" selection-start-column="102" selection-end-line="4" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -204,9 +199,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="177" />
-    <option name="y" value="-20" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="191" />
+    <option name="y" value="443" />
     <option name="width" value="1836" />
     <option name="height" value="1100" />
   </component>
@@ -258,16 +253,16 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\cronJob\static" />
+      <recent name="C:\cronJob" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\cronJob\static\image" />
       <recent name="C:\cronJob" />
       <recent name="C:\cronJob\views" />
       <recent name="C:\cronJob\static\download" />
       <recent name="C:\cronJob\models" />
-      <recent name="C:\cronJob\controllers" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\cronJob\static" />
-      <recent name="C:\cronJob" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -317,14 +312,15 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="191" y="443" width="1836" height="1100" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119098715" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12585033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946353" visible="true" weight="0.35555556" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946353" visible="true" weight="0.33898306" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -665,8 +661,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="104">
+          <caret line="4" column="102" selection-start-line="4" selection-start-column="102" selection-end-line="4" selection-end-column="102" />
         </state>
       </provider>
     </entry>
