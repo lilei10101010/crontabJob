@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0043b50-d72b-4c5b-b26c-f4c16e94c5d5" name="Default Changelist" comment="" />
+    <list default="true" id="e0043b50-d72b-4c5b-b26c-f4c16e94c5d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/image/addCrontab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/addlisten.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/listen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/systemIndex.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/systemLog.png" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,13 +204,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="177" />
     <option name="y" value="-20" />
@@ -224,6 +224,17 @@
               <item name="cronJob" type="b2602c69:ProjectViewProjectNode" />
               <item name="cronJob" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cronJob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronJob" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cronJob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronJob" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -233,12 +244,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -306,7 +318,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119098715" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
