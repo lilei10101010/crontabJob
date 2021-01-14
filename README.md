@@ -4,6 +4,11 @@
 ![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/addlisten.png?raw=true)
 ![Image text](https://github.com/lilei10101010/crontabJob/blob/master/static/image/listen.png?raw=true)
 
+crontab job可以干嘛？
+1.他可以帮你在指定的时间请求某个url,指定的时间发送邮件
+2.它可以帮你监听redis的队列，请求队列的url或者发送队列里面的邮件
+3.你也可以把它看做是一个秒级的定时器
+
 服务器设置
 1.默认监听9527端口,在main.go文件更改
 2.时区默认设置为北京时间，在main.go文件TIME_ZONE更改
