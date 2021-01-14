@@ -1,0 +1,83 @@
+{{ define "receiveAdd.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+<div class="content-wrapper">
+    <section class="content-header">
+        <a href="/ReceiveUsers" class="btn btn-md btn-success  btn-add">
+            <i class="fa fa-bars fa-fw"></i>收件人列表
+        </a>
+        <a href="/static/upload/emailUsers.csv" target="_blank" title="下载示例文件" class="btn btn-md" style="background-color:#28bdb7;margin-left:30px;color:white;">
+            示例文件<i class="fa fa-cloud-download"></i>
+        </a>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">
+                    <i class="fa fa-dashboard"></i>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">{{.seoTitle}}</a></li>
+        </ol>
+    </section>
+    <style>.content .form-div{ margin-bottom:10px; } .content .tips{ color:green; }</style>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="/" method="post" id="formBox">
+                    <input type="hidden" name="isEdit" value="{{.editKey}}">
+                    <div class="box-body" style="background-color:white;">
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">收件列表名称
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="自动加上前缀GoJob_multiUser_支持字母开头"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="name" placeholder="字母或者数字,不支持空格、中文或者特殊符号" value="{{.smtp.Host}}">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">收件人文件
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP发件服务器端口号"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <a href="javascript:;" class="fileStyle">上传文件<input type="file" class="ajaxUploadImage" style="width:100%">
+                                    <input type="hidden" name="fileValue" value="/static/upload/202012/5dba98a8c3a56154f3554f87eca5b03c.csv">
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-sm-offset-2">
+                                <div class="col-xs-12 col-sm-8">
+                                    <button type="button" class="btn btn-success btn-embossed submitForm">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    $('.submitForm').click(function() {
+                        $.ajax({
+                            url: "/AddEmailApi",
+                            type: "post",
+                            dataType: 'json',
+                            data:$("#formBox").serialize(),
+                            beforeSend:LoadingStart(),
+                            success:function(res){
+                                console.log(res)
+                                LoadingEnd();
+                                layer.msg(res.msg);
+                                if(res.code==2000){
+                                    setTimeout(function(){location.href=res.redirectUrl},1000)
+                                }
+                            },
+                            error:function(){
+                                LoadingEnd();
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+</div>
+{{template "commonFooter" .}}
+{{ end }}

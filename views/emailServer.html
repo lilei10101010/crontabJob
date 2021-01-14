@@ -1,0 +1,109 @@
+{{ define "emailServer.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="" method="get" id="searchForm">
+                <a href="/AddSmtp" style="color:white;"><button type="button" class="btn btn-md btn-success btn-add addButton">
+                    <i class="fa fa-plus"></i>添加
+                </button></a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">邮件服务器</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList" >
+                                    <th style="text-align: center">HOST
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP服务器"></i>
+                                    </th>
+                                    <th style="text-align: center">PORT
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP服务器端口号"></i>
+                                    </th>
+                                    <th style="text-align: center">ACCOUNT
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="邮件服务器发送账号"></i>
+                                    </th>
+                                    <th style="text-align: center">PASSWORD
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="密码"></i>
+                                    </th>
+                                    <th style="text-align: center">ACTION</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.smtpServer}}
+                                <tr class="listItem" style="text-align: center">
+                                    <td>{{$v.Host}}</td>
+                                    <td>{{$v.Port}}</td>
+                                    <td>{{$v.Account}}</td>
+                                    <td title="点击查看密码" pwd="{{$v.Password}}" class="checkPassword" flag="false">************************</td>
+                                    <td>
+                                        <a href="/AddSmtp?key={{.Account}}" class="btn btn-xs btn-success" title="编辑" account="{{.Account}}">
+                                            <i class="fa fa-pencil"></i></a>
+                                        <a href="javascript:;" class="deleteItem btn btn-xs btn-danger" title="删除{{.Account}}?" account="{{.Account}}">
+                                        <i class="fa fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        $(".checkPassword").click(function(){
+            var thisItem = $(this);
+            var flag = thisItem.attr('flag');
+            if(flag=="false"){
+                var pwd = thisItem.attr("pwd");
+                thisItem.text(pwd);
+                thisItem.attr('flag',"true");
+            }else{
+                thisItem.text("************************");
+                thisItem.attr('flag',"false");
+            }
+        });
+        //删除操作
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+            var title = thisItem.attr("title");
+            var account = thisItem.attr('account');
+            if (account==""){
+                layer.msg("Key不能为空!");
+                return
+            }
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteSmtp",
+                    type: "post",
+                    dataType: 'json',
+                    data:{account:account},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

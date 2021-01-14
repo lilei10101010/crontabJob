@@ -1,0 +1,137 @@
+{{ define "queueAdd.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+<div class="content-wrapper">
+    <section class="content-header">
+        <a href="/Queue" class="btn btn-md btn-success  btn-add">
+            <i class="fa fa-bars fa-fw"></i>监听队列</a>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">
+                    <i class="fa fa-dashboard"></i>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">添加任务</a></li>
+        </ol>
+    </section>
+    <style>.content .form-div{ margin-bottom:10px; } .content .tips{ color:green; }</style>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="/QueueAddApi" method="post" id="formBox">
+                    <div class="box-body" style="background-color:white;">
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">队列名称
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="请填写任务名称,名称不能重复"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="QueueName" placeholder="队列名称">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">KeyName
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="需要监听的KEY名称"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="KeyName" placeholder="需要监听的KEY名称">
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">执行操作
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="监听redis的List,当list有数据的时候执行您指定的操作发送邮件或请求网址"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control ExecType" name="ExecType">
+                                    <option value="get">GET请求</option>
+                                    <option value="post">POST请求</option>
+                                    <option value="email">触发邮件</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-div success_flag">
+                            <label style="text-align:right;" class="col-sm-1 control-label">成功标记
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title='GET/POST请求成功返回的字符串'></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="SuccessFlag" value="" placeholder="GET/POST请求成功返回的字符串">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div success_flag">
+                            <label style="text-align:right;" class="col-sm-1 control-label">请求超时
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title='GET/POST请求超时时间'></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="TimeOut" value="30" placeholder="GET/POST请求超时时间">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-sm-offset-2">
+                                <div class="col-xs-12 col-sm-8">
+                                    <button type="button" class="btn btn-success btn-embossed submitForm">保存</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    $(".ExecType").change(function(){
+                        var exec = $(".ExecType").val();
+                        if(exec=="email"){
+                            $(".success_flag").css("display","none");
+                            $(".requestTips").css("display","none");
+                            $(".emailTips").css("display","block");
+                        }else{
+                            $(".success_flag").css("display","block");
+                            $(".requestTips").css("display","block");
+                            $(".emailTips").css("display","none");
+                        }
+                    });
+                    $('.submitForm').click(function() {
+                        $.ajax({
+                            url: "/QueueAddApi",
+                            type: 'post',
+                            dataType: 'json',
+                            data:$("#formBox").serialize(),
+                            beforeSend:LoadingStart(),
+                            success:function(res){
+                                LoadingEnd();
+                                layer.msg(res.msg);
+                                if(res.code==2000){
+                                    setTimeout(function(){location.href="/Queue"},1000)
+                                }else if(res.code==1900){
+                                    setTimeout(function(){location.href="/LoginPage?tips=请先登录"},1000)
+                                }
+                            },
+                            error:function(){
+                                LoadingEnd();
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix form-div">
+        <label style="text-align:right;" class="col-sm-1 control-label">温馨提示：</label>
+        <div class="col-sm-7">
+                <p class="requestTips">例如监听一个叫aaa的key执行的操作是GET/POST则,<br>
+                    在Redis直接 lpush aaa "{\"Exec\":\"get\",\"Url\":\"https:\/\/www.buruyouni.com/spider/request?rid=watchKeyGetMethod\"}"<br>
+                    在Redis直接 lpush bbb "{\"Exec\":\"post\",\"Url\":\"https:\/\/www.buruyouni.com/spider/request?rid=watchKeyPostMethod\"}"<br>
+                    程序读取到aaa有内容,则会去执行GET或者POST请求,如果填写了"成功字符串",例如success，那么请求的返回结果是success则这个请求是成功的,否则请求就记录是失败的,如果不填写成功字符串,请求了就算成功(注意字段名Exec,Url一定要完全一致,大小写敏感)</p>
+            <p class="emailTips" style="display: none">例如监听一个叫ccc的key执行的操作是email发送邮件,<br>
+                用任何语言写入Redis的list ccc如下字段的数据即可：<br>
+                lpush ccc "{\"Exec\":\"email\",\"SmtpUser\":\"admin@buruyouni.com\",\"SmtpPwd\":\"DENNYajax20190428\",\"SmtpHost\":\"smtpdm.aliyun.com\",\"SmtpPort\":\"80\",\"Receive\":\"269754243@qq.com\",\"Sender\":\"MMOGA LTD\",\"Title\":\"Please send testing email for me\",\"Content\":\"When you think it's too late, it's the earliest time\"}"<br>
+                Exec是执行操作email必填,SmtpUser是SMTP的用户，SmtpPwd是用户的密码<br>
+                SmtpHost是SMTP的服务器地址,SmtpPort是端口号<br>
+                Receive是收件人邮箱,Sender是发件人名称<br>
+                Title是邮件标题,Content是邮件内容<br>
+                程序读取到ccc有内容,则会去检查字段是否完整.(注意字段名一定要完全一致,大小写敏感)</p>
+        </div>
+    </div>
+</div>
+
+{{template "commonFooter" .}}
+{{ end }}

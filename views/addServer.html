@@ -1,0 +1,94 @@
+{{ define "addServer.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+<div class="content-wrapper">
+    <section class="content-header">
+        <a href="/EmailServer" class="btn btn-md btn-success  btn-add">
+            <i class="fa fa-bars fa-fw"></i>邮箱列表</a>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">
+                    <i class="fa fa-dashboard"></i>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">{{.seoTitle}}</a></li>
+        </ol>
+    </section>
+    <style>.content .form-div{ margin-bottom:10px; } .content .tips{ color:green; }</style>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="/" method="post" id="formBox">
+                    <input type="hidden" name="isEdit" value="{{.editKey}}">
+                    <div class="box-body" style="background-color:white;">
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">发件服务器
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP发件服务器"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="Host" placeholder="SMTP发件服务器" value="{{.smtp.Host}}">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">端口号
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP发件服务器端口号"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="Port" placeholder="SMTP发件服务器端口号" value="{{.smtp.Port}}">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">发件账号
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP发件服务器发件账号"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="Account" placeholder="发送邮件账号" value="{{.smtp.Account}}">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">邮箱密码
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="SMTP发件服务器邮箱密码"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="Password" placeholder="邮箱密码" value="{{.smtp.Password}}">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-sm-offset-2">
+                                <div class="col-xs-12 col-sm-8">
+                                    <button type="button" class="btn btn-success btn-embossed submitForm">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    $('.submitForm').click(function() {
+                        $.ajax({
+                            url: "/AddSmtpApi",
+                            type: $("#formBox").attr("method"),
+                            dataType: 'json',
+                            data:$("#formBox").serialize(),
+                            beforeSend:LoadingStart(),
+                            success:function(res){
+                                console.log(res)
+                                LoadingEnd();
+                                layer.msg(res.msg);
+                                if(res.code==2000){
+                                    setTimeout(function(){location.href=res.redirectUrl},1000)
+                                }
+                            },
+                            error:function(){
+                                LoadingEnd();
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+</div>
+{{template "commonFooter" .}}
+{{ end }}

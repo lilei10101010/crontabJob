@@ -1,0 +1,89 @@
+{{ define "receiveUsers.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="" method="get" id="searchForm">
+                <a href="/AddEmailUsers" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>添加
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">收件人列表</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>任务KEY<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="列表Key名称,自动加上前缀GoJob_multiUser_"></i></th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.emalList}}
+                                <tr class="listItem">
+                                    <td>{{$v}}</td>
+                                    <td>
+                                        <a href="/UpdateEmailUsers?key={{$v}}" class="btn btn-xs btn-success" title="查看">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="javascript:;" class="deleteItem btn btn-xs btn-danger" title="删除?" keyName="{{$v}}">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //删除任务
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+            var keyName = thisItem.attr('keyName');
+            var title = thisItem.attr('title');
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteEmailApi",
+                    type: "post",
+                    dataType: 'json',
+                    data:{keyName:keyName},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+
+        });
+
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

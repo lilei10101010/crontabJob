@@ -1,0 +1,109 @@
+{{ define "jobLog.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="" method="get" id="searchForm">
+                <a href="/AddCronJob" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>添加
+                    </button>
+                </a>
+                {{if ne .nextPage ""}}
+                <a href="{{.nextPage}}">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">查看更多</button>
+                </a>
+                {{end}}
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="/">{{.seoTitle}}</a></li>
+                <li><span>共有数据：<strong class="logTotalNum" pageSize="{{.limitSize}}">{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>
+                                        任务：{{.jobName}}的{{.seoTitle}}，自动刷新时间<span class="autoReflesh" style="color:orangered">5</span>秒
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="任务运行日志,如需下载日志,可在运行日志页面下载"></i>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="contentTbody">
+                                {{range $k,$v:=.logList}}
+                                <tr class="listItem">
+                                    <td>{{$v}}</td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        $(function(){
+            setInterval(function(){
+                var total   = $(".logTotalNum").text();
+                var size    = $(".logTotalNum").attr("pageSize");
+                var reTime  = $(".autoReflesh").text();
+                var starNum = total-size;
+                console.log(total)
+                console.log(size)
+                console.log(starNum)
+                if (reTime==0){
+                    var url = "/JobLog?num="+starNum+"&limit="+size+"&isApi=1&key="+{{.key}};
+                    console.log(url)
+                    $.get(url,function(res){
+                        $(".autoReflesh").text(5);
+                        $(".logTotalNum").text(res.totalCount);
+                        $(".content .contentTbody").html("");
+                        $(".content .contentTbody").html(res.logString);
+                    });
+                }
+                $(".autoReflesh").text(reTime-1);
+            },1000);
+        });
+
+        //删除任务
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+            var keyName = thisItem.attr('keyName');
+            var title = thisItem.attr('title');
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteEmailApi",
+                    type: "post",
+                    dataType: 'json',
+                    data:{keyName:keyName},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+        });
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

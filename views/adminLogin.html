@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <!-- Loading Bootstrap -->
+    <link href="/static/css/backend.min.css?v=20190125" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.demo.fastadmin.net/static/js/html5shiv.js"></script>
+    <script src="https://cdn.demo.fastadmin.net/static/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <style type="text/css">
+        body {
+            color:#999;
+            background:url('/static/image/loginbg.jpg');
+            background-size:cover;
+        }
+        a {
+            color:#fff;
+        }
+        .login-panel{margin-top:150px;}
+        .login-screen {
+            max-width:400px;
+            padding:0;
+            margin:100px auto 0 auto;
+
+        }
+        .login-screen .well {
+            border-radius: 3px;
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255,255,255, 0.2);
+        }
+        .login-screen .copyright {
+            text-align: center;
+        }
+        @media(max-width:767px) {
+            .login-screen {
+                padding:0 20px;
+            }
+        }
+        .profile-img-card {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .profile-name-card {
+            text-align: center;
+        }
+
+        #login-form {
+            margin-top:20px;
+        }
+        #login-form .input-group {
+            margin-bottom:15px;
+        }
+
+    </style>
+</head>
+<body><div id="video_wrapper">
+    <!--<video autoplay muted loop>-->
+    <!--<source src="/static/admin/login.mp4" type="video/mp4">-->
+    <!--</video>-->
+</div>
+<style>
+    body {
+        background:url("/static/image/login2.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    #video_wrapper {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #video_wrapper video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: -100;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<div class="container">
+    <div class="login-wrapper">
+        <div class="login-screen">
+            <div class="well">
+                <div class="login-form">
+                    <img id="profile-img" style="cursor:pointer;" class="profile-img-card" title="点击使用微信登录" src="/static/image/wechatLogin.png" onclick="openSocial(this)" urlItem="https://open.weixin.qq.com/connect/qrconnect?appid=wx9420249ab51879be&redirect_uri=https%3A%2F%2Fpoweradmin.mmogapower.com%2Ftest.php&response_type=code&scope=snsapi_login&state=login#wechat_redirect"/>
+                    <p id="profile-name" class="profile-name-card" style="color:#fff;text-shadow:0 1px 1px rgba(0, 0, 0, 0.15);">用户:269754243@qq.com 密码:123456</p>
+                    <form  id="login-form">
+                        <div id="errtips" class="hide"></div>
+                        <input type="hidden" name="token" value="387d64627279cc97e97cf14622d8038f" />
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                            <input type="text" class="form-control" placeholder="邮箱" name="username" value="" autocomplete="off" />
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                            <input type="password" class="form-control" id="pd-form-password" placeholder="密码" name="password" autocomplete="off" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <label class="inline">
+                                <input type="checkbox" name="keepLogin" value="1" />
+                                保持会话
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success btn-lg btn-block">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                /**
+                 *  更换背景图
+                 * */
+                // var bgNum = 1;
+                // setInterval(function(){
+                //     $("body").css("background",'url(' + "/static/admin/img/login"+bgNum+".jpg" + ')');
+                //     $("body").css("background-size","cover");
+                //     bgNum>=4?bgNum=1:bgNum++;
+                // },4000);
+                /**
+                 * 点击事件触发
+                 * */
+                $('.btn-lg').click(function(){
+                    Login();
+                });
+                /**
+                 * 回车事件触发
+                 * */
+                $(document).keyup(function(event){
+                    if(event.keyCode ==13){
+                        Login();
+                    }
+                });
+                /**
+                 *  登录逻辑
+                 * */
+                function Login(){
+                    var username = $("input[name='username']").val();
+                    var password = $("input[name='password']").val();
+                    var token    = $("input[name='token']").val();
+                    var keepLogin= $("input[name='keepLogin']:checked").val();
+                    if(!username){
+                        layer.msg('账号不能为空');return false;
+                    }
+                    if(!password){
+                        layer.msg('密码不能为空');return false;
+                    }
+                    console.log(username);
+                    console.log(password);
+                    console.log(token);
+                    $.post("/LoginApi",
+                        {username:username,password:password,token:token},
+                        function(result){
+                            console.log(result);
+                            if(result.code==2000){
+                                window.location.href=result.redirect_url;
+                            }
+
+                            layer.msg(result.msg);
+                            if(result.code==6000){
+                                setTimeout(function(){window.location.reload();},3000);
+                            }
+                        });
+                }
+                //wechat login
+                function openSocial(event){
+                    var link = event.getAttribute("urlItem");
+                    var openL = ($(window).width() - 400)/2;
+                    return window.open(link, "", "width=500,height=580,resizable=yes,top=20,left="+openL+",scrollbars=yes,status=yes");
+                }
+                $(function(){
+                    var tips = $(".getTips").attr("tips");
+                    if(tips){
+                        layer.msg(tips);
+                    }
+                });
+            </script>
+            <p class="copyright getTips" tips="{{.tips}}">
+                <a href="http://www.buruyouni.com">Powered By yangxingyi</a>&nbsp;&nbsp;
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

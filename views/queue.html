@@ -1,0 +1,106 @@
+{{ define "queue.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="/" method="get" id="searchForm">
+                <a href="/QueueAdd" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>添加
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">队列列表</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>任务名称</th>
+                                    <th>监听的KEY<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="在Redis可以直接GET KEY获取任务详情"></i></th>
+                                    <th>执行操作<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="执行的操作"></i></th>
+                                    <th>成功标志<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="只支持GET/POST操作"></i></th>
+                                    <th>创建人<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="创建人"></i></th>
+                                    <th>创建时间<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="创建时间"></i></th>
+                                    <th>请求超时</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.list}}
+                                <tr class="listItem">
+                                    <td>{{$v.QueueName}}</td>
+                                    <td>{{$v.KeyName}}</td>
+                                    <td>{{$v.Exec}}</td>
+                                    <td title="只支持GET/POST">{{.SuccessFlag}}</td>
+                                    <td>{{$v.CreateUser}}</td>
+                                    <td>{{$v.CreateTime}}</td>
+                                    <td>
+                                        {{if or (eq $v.Exec "get") (eq $v.Exec "post")}}{{$v.TimeOut}} Second {{end}}
+                                    </td>
+                                    <td>
+                                        <a href="/Logs" class="btn btn-xs btn-success" title="查看日志">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="javascript:;" class="deleteItem btn btn-xs btn-danger" title="删除{{.QueueName}}?" keyName="{{.KeyName}}">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--分页-->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //删除任务
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+
+            var keyName = thisItem.attr('keyName');
+            var title = thisItem.attr('title');
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/QueueDelApi",
+                    type: "post",
+                    dataType: 'json',
+                    data:{keyName:keyName},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+
+        });
+
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

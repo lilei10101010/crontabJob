@@ -1,0 +1,118 @@
+{{ define "adminAccount.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="" method="get" id="searchForm">
+                <a href="/AddAccount" style="color:white;"><button type="button" class="btn btn-md btn-success btn-add addButton">
+                    <i class="fa fa-plus"></i>添加
+                </button></a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">{{.seoTitle}}</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList" >
+                                    <th style="text-align: center">管理账号
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="后台可登录的用户"></i>
+                                    </th>
+                                    <th style="text-align: center">账号密码
+                                        <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="账号密码"></i>
+                                    </th>
+                                    <th style="text-align: center">ACTION</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.userList}}
+                                <tr class="listItem" style="text-align: center">
+                                    <td>{{$v}}</td>
+                                    <td class="viewPwd">********************</td>
+                                    <td>
+                                        <a href="javascript:;" class="btn btn-xs btn-success updatePassword" title="修改{{$v}}的密码" key="{{$v}}">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="javascript:;" class="deleteItem btn btn-xs btn-danger" title="删除{{$v}}?" key="{{$v}}">
+                                        <i class="fa fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //查看密码
+        $(".viewPwd").click(function(){
+            layer.msg("密码不能看,如需修改请看右边")
+        });
+        //默认prompt
+        $(".updatePassword").click(function(){
+            var thisItem = $(this);
+            var key = thisItem.attr("key");
+            var title = thisItem.attr("title");
+            layer.prompt({title:title},function(val, index){
+                if (val.length>5){
+                    layer.msg('得到了'+val+key);
+                    $.post("/UpateAccount",{key:key,pwd:val},function(res){
+                        layer.msg(res.msg);
+                        if(res.code==1900||res.code==2000){
+                            setTimeout(function(){
+                                location.href=res.redirectUrl//跳转到登录页面
+                            },2000)
+                        }
+                        layer.close(index);
+                    });
+
+                }else{
+                    layer.msg('请输入六位数以上的密码');
+                }
+            });
+        });
+
+        //删除操作
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+            var title = thisItem.attr("title");
+            var key = thisItem.attr('key');
+            if (key==""){
+                layer.msg("Key不能为空!");
+                return
+            }
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteAccount",
+                    type: "post",
+                    dataType: 'json',
+                    data:{key:key},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

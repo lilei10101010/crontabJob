@@ -1,0 +1,88 @@
+{{ define "receiveDetail.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="" method="get" id="searchForm">
+                <a href="/AddEmailUsers" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>添加
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">收件人详情</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <tbody class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <p style="font-size:15px;font-weight: bold ">KEY NAME：{{.keyName}}</p>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <style>
+                                    .BodyMainUl{margin:0;padding:0;margin-top:20px;}
+                                    .BodyMainUl span{padding-right:20px;font-size:14px;}
+                                </style>
+                                <ul class="BodyMainUl">
+                                {{range $k,$v:=.emalList}}
+                                    <span>{{$v}}</span>
+                                {{end}}
+                                </ul>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //删除任务
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+
+            var keyName = thisItem.attr('keyName');
+            var exec = thisItem.attr('exec');
+            var title = thisItem.attr('title');
+            var isRepeat = thisItem.attr('isRepeat');
+            var runBetween = thisItem.attr('runBetween');
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteJobApi",
+                    type: "post",
+                    dataType: 'json',
+                    data:{keyName:keyName,exec:exec,isRepeat:isRepeat,runBetween:runBetween},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+
+        });
+
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

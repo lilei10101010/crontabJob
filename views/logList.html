@@ -1,0 +1,110 @@
+{{ define "logList.html" }}
+    {{template "commonHeader" .}}
+    {{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="/" method="get" id="searchForm">
+                <a href="/SystemIndex" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-bars fa-fw"></i>任务列表
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">{{.seoTitle}}</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>文件路径</th>
+                                    <th>文件名称</th>
+                                    <th style="text-align: center">下载文件<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="下载文件,在服务器生成的压缩文件最长保存时间24小时,过期后会自动删除"></i></th>
+                                    <th style="text-align: center">查看日志<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="查看最新的日志"></i></th>
+                                    <th style="text-align: center">文件大小<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="文件大小"></i></th>
+                                    <th>修改时间<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="修改时间"></i></th>
+                                    <th>文件权限<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="文件权限"></i></th>
+                                    <th style="text-align: center">清空文件<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="清空文件"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.logList}}
+                                    <tr class="listItem">
+                                        <td>{{.FilePath}}</td>
+                                        <td>{{.FileName}}</td>
+                                        <td style="text-align: center" class="downloadLog" file="{{.FileName}}">
+                                            <a href="javascript:;" class=" btn btn-xs btn-success" title="下载{{.FileName}}?" >
+                                                <i class="fa  fa-cloud-download"></i>
+                                            </a>
+                                        </td>
+                                        <td class="" style="text-align: center">
+                                            <a href="/ViewLog?fileName={{.FileName}}" class="btn btn-xs btn-success" title="查看最新日志">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
+                                        <td class="fileSize" style="text-align: center">{{.FileSizeString}}</td>
+                                        <td>{{.ModTime}}</td>
+                                        <td>{{$v.Mode}}</td>
+                                        <td style="text-align: center" class="FlushItem" file="{{.FileName}}">
+                                            <a href="javascript:;" class=" btn btn-xs btn-danger" title="清空{{.FileName}}?" >
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--分页-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //清空文件内容
+        $(".FlushItem").click(function(){
+            var thisItem = $(this);
+            var file = thisItem.attr("file");
+
+            layer.confirm("请确认是否清空"+file+"文件操作", {
+                btn: ["确认","取消"],
+                title: "确认清空文件?",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.get("/DownLog?file="+file+"&flushFile=true",function(res){
+                    layer.msg(res.msg);
+                    if(res.code==2000){
+                        thisItem.parents(".listItem").find(".fileSize").html("<span style='color:orangered;'>0B</span>");
+                    }
+                });
+            });
+        });
+
+        //下载日志文件
+        $(".downloadLog").click(function(){
+            console.log(window.location.host)
+            var ishttps = 'https:' == document.location.protocol ? "https://" : "http://";
+            var file = $(this).attr("file");
+            $.get("/DownLog?file="+file,function(res){
+                if(res.code==2000){
+                    location.href=ishttps+window.location.host+res.redirectUrl
+                }else{
+                    layer.msg(res.tips)
+                }
+            });
+        });
+
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+    {{template "commonFooter" .}}
+{{ end }}

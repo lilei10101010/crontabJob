@@ -1,0 +1,154 @@
+{{ define "systemIndex.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="/admin/adminsocket/index" method="get" id="searchForm">
+                <!--
+                <input type="text" class="form-control col-xs-1 search" name="push_message" placeholder="content" value="" />
+                <input type="text" class="form-control col-xs-1 search" name="start_time" placeholder="开始时间" value="" id="start_time" />
+                <input type="text" class="form-control col-xs-1 search" name="end_time" placeholder="结束时间" value="" id="end_time" />
+                <button type="button" class="btn btn-md btn-danger btn-add searchButton">搜索</button>-->
+                <a href="/AddCronJob" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>添加
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">任务列表</a></li>
+                <li><span>共有数据：<strong>{{.totalCount}}</strong>条</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>任务KEY<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="在Redis可以直接GET KEY获取任务详情"></i></th>
+                                    <th>任务名称</th>
+                                    <th>重复运行<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="所有监听的REDIS KEY都是重复运行的,重复运行的任务必须设置运行时间间隙，GET/POST操作可设置失败重试次数"></i></th>
+                                    <th>开始时间<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="需要到开始时间才会执行操作"></i></th>
+                                    <th>执行操作<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="GET/POST操作,可设置超时次数,超时时间"></i></th>
+                                    <th>执行内容</th>
+                                    <th>成功标志<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="只支持GET/POST操作"></i></th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{range $k,$v:=.jobList}}
+                                <tr class="listItem">
+                                    <td>{{$v.SetKey}}</td>
+                                    <td>{{$v.JobName}}</td>
+                                    <td style="text-align: center">
+                                        {{if or (eq $v.IsRepeat "1") (eq $v.Exec "watchList")}}
+                                            <span style="color: #0bb20c">是 {{.BetweenNum}}{{.RunBetween}}</span>
+                                        {{else}}<span style="color: orangered">否 {{$v.RetryNum}}Times</span>
+                                        {{end}}
+                                    </td>
+                                    <td>{{$v.RunDateTime}}</td>
+                                    <td style="text-align: center">
+                                        {{$v.Exec}}  {{if or (eq $v.Exec "get") (eq $v.Exec "post")}}{{$v.TimeOut}}S{{end}}
+                                    </td>
+                                    <td style="max-width: 300px;" class="viewMore" key="{{$v.SetKey}}" title="点击查看详情">{{$v.Content}}</td>
+                                    <td title="只支持GET/POST">{{.SuccessFlag}}</td>
+                                    <td>
+                                        <a href="/JobLog?key={{.SetKey}}&title={{.JobName}}" class="btn btn-xs btn-success" title="查看">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="javascript:;" class="deleteItem btn btn-xs btn-danger" title="删除{{.JobName}}?" keyName="{{.SetKey}}" exec="{{.Exec}}" isRepeat="{{.IsRepeat}}" runBetween="{{.RunBetween}}">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--分页-->
+                        {{if gt .nextPage 0}}
+                        <div class="box-footer text-center clearfix">
+                            <ul class="pagination">
+                                {{if eq .nowPage 1}}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                    {{else}}
+                                    <li><a href="/SystemIndex?page={{.prevPage}}&size={{.pageSize}}"><span>&laquo;</span></a></li>
+                                {{end}}
+                                <li class="active"><span>{{.nowPage}}</span></li>
+{{/*                                <li><a href="/admin/adminsocket/index?page=2">2</a></li>*/}}
+{{/*                                <li><a href="/admin/adminsocket/index?page=3">3</a></li>*/}}
+{{/*                                <li><a href="/admin/adminsocket/index?page=4">4</a></li>*/}}
+{{/*                                <li class="disabled"><span>...</span></li>*/}}
+{{/*                                <li><a href="/admin/adminsocket/index?page=16">16</a></li>*/}}
+{{/*                                <li><a href="/admin/adminsocket/index?page=17">17</a></li>*/}}
+                                <li><a href="/SystemIndex?page={{.nextPage}}&size={{.pageSize}}">&raquo;</a></li>
+                            </ul>
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        $('.viewMore').click(function(){
+            $.post("/ADetailJob",{key:$(this).attr("key")},function(res){
+                if(res.code==2000){
+                    var result = res.result;
+                    layer.open({
+                        type: 1,
+                        skin: 'layui-layer-molv', //加上边框
+                        area: ['800px', '600px'], //宽高
+                        content:result
+                    });
+                }else{
+                    layer.msg(res.msg)
+                }
+            });
+
+            //layer.alert("<h1>内容详情11111</h1>",{skin: 'layui-layer-molv',closeBtn: 0,title:"内容详情"});
+        });
+        //删除任务
+        $('.deleteItem').click(function(){
+            thisItem = $(this);
+            var listItem = $(this).parents('.listItem');
+
+            var keyName = thisItem.attr('keyName');
+            var exec = thisItem.attr('exec');
+            var title = thisItem.attr('title');
+            var isRepeat = thisItem.attr('isRepeat');
+            var runBetween = thisItem.attr('runBetween');
+            layer.confirm(title, {
+                btn: ["确认","取消"],
+                title: "删除操作",
+                skin: 'layui-layer-molv'
+            },function(){
+                $.ajax({
+                    url: "/DeleteJobApi",
+                    type: "post",
+                    dataType: 'json',
+                    data:{keyName:keyName,exec:exec,isRepeat:isRepeat,runBetween:runBetween},
+                    beforeSend:LoadingStart(),
+                    success:function(res){
+                        LoadingEnd();
+                        layer.msg(res.msg);
+                        listItem.remove();
+                    },
+                    error:function(){
+                        LoadingEnd();
+                    }
+                });
+            });
+
+        });
+
+        $('.searchButton').click(function(){
+            LoadingStart();
+            $("#searchForm").submit();
+        });
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

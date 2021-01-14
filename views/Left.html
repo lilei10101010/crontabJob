@@ -1,0 +1,45 @@
+{{define "commonLeft"}}
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel" onclick="layer.msg('Copyright MMOGA LTD');">
+            <div class="pull-left image">
+                <img src="/static/image/mmoga.png" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p>MMOGA LTD</p>
+                <a href="javascript:;"><i class="fa fa-circle text-success"></i> Copyright</a>
+            </div>
+        </div>
+        <ul class="sidebar-menu" data-widget="tree">
+
+
+            <li class="treeview active menu-open">
+                <a href="javascript:;"> <i class="fa  fa-envelope"></i> <span>任务调度</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+                <ul class="treeview-menu">
+                    <li {{if or (eq .path  "/AddCronJob") (eq .path  "/SystemIndex") (eq .path  "/JobLog")}}class="active"{{end}}>
+                        <a href="/SystemIndex"> <i class="fa fa-circle-o text-aqua"></i> 任务列表 </a>
+                    </li>
+                    <li {{if or (eq .path  "/Queue") (eq .path  "/QueueAdd")}}class="active"{{end}}>
+                        <a href="/Queue"> <i class="fa fa-circle-o text-aqua"></i> 监听队列 </a>
+                    </li>
+                    <li {{if or (eq .path  "/Logs") (eq .path "/ViewLog") }}class="active"{{end}}>
+                        <a href="/Logs"> <i class="fa fa-circle-o text-aqua"></i> 运行日志 </a>
+                    </li>
+                    <li {{if or (eq .path  "/ReceiveUsers") (eq .path  "/AddEmailUsers") (eq .path  "/UpdateEmailUsers")}}class="active"{{end}}>
+                        <a href="/ReceiveUsers"> <i class="fa fa-circle-o text-aqua"></i> 收件人管理 </a>
+                    </li>
+                    <li {{if or (eq .path  "/EmailServer") (eq .path  "/AddSmtp") (eq .path  "/EditSmtp")}}class="active"{{end}}>
+                        <a href="/EmailServer"> <i class="fa fa-circle-o text-aqua"></i> 邮箱设置 </a>
+                    </li>
+                    <li {{if or (eq .path  "/AdminAccount") (eq .path  "/AddAccount") (eq .path  "/AccountEdit")}}class="active"{{end}}>
+                        <a href="/AdminAccount"> <i class="fa fa-circle-o text-aqua"></i> 账号管理 </a>
+                    </li>
+
+
+                </ul>
+            </li>
+        </ul>
+    </section>
+</aside>
+{{end}}

@@ -1,0 +1,60 @@
+{{ define "logDetail.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <form action="/" method="get" id="searchForm">
+                <a href="/Logs" style="color:white;">
+                    <button type="button" class="btn btn-md btn-success btn-add addButton">
+                        <i class="fa fa-plus"></i>运行日志
+                    </button>
+                </a>
+            </form>
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">{{.seoTitle}}</a></li>
+                <li><span>展示最新的：<strong>6KB</strong>数据</span></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr class="trList">
+                                    <th>{{.logName}}最新的6KB日志,下次刷新时间<span class="reflahSecond">10</span>秒<i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="展示最新的6KB日志，每10秒刷新当前页面"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr class="listItem">
+                                    <td>{{.logString}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--分页-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        //每分钟刷新当前页面
+        setInterval(function () {
+            var sec = $(".reflahSecond").text();
+            if (sec==0){
+                $.get("/ViewLog?isApi=true&fileName="+{{.logName}},function(res){
+                    console.log(res)
+                    $(".reflahSecond").text(10);
+                    $(".listItem td").html("");
+                    $(".listItem td").html(res.logString);
+                });
+            }
+
+            $(".reflahSecond").text(sec-1);
+        },1000)
+    </script>
+{{template "commonFooter" .}}
+{{ end }}

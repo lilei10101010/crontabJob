@@ -1,0 +1,274 @@
+{{ define "addCronjob.html" }}
+{{template "commonHeader" .}}
+{{template "commonLeft" .}}
+<div class="content-wrapper">
+    <section class="content-header">
+        <a href="/SystemIndex" class="btn btn-md btn-success  btn-add">
+            <i class="fa fa-bars fa-fw"></i>任务列表</a>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">
+                    <i class="fa fa-dashboard"></i>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">添加任务</a></li>
+        </ol>
+    </section>
+    <style>.content .form-div{ margin-bottom:10px; } .content .tips{ color:green; }</style>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="/AddJobApi" method="post" id="formBox">
+                    <div class="box-body" style="background-color:white;">
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">任务名称
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="请填写任务名称,名称不能重复"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="job_name" placeholder="任务名称"></div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">重复运行
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="否:只运行一次,是:一直运行"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control isRepeat" name="isRepeat">
+                                    <option value="0" selected="selected">否</option>
+                                    <option value="1">是(一直运行)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div runBetween" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">运行间隙
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="重复运行的时候可以选择运行间隙"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control run_between" name="run_between">
+                                    <option value="second">秒</option>
+                                    <option value="minute">分钟</option>
+                                    <option value="hour">小时</option>
+                                    <option value="day">天</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div runBetween" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">运行间隙数值
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="当选择可以重复运行的时候，需要选择运行间隙和运行间隙数值"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="between_num" placeholder="运行间隙数值" value="1" >
+                            </div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">执行时间
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="请选择一个未来的时间"></i>
+                            </label>
+                            <div class="col-sm-7" style="display: inline">
+                             <input type="text" class="form-control" style="display: inline" name="RunDateTime" id="run_datetime" placeholder="请选择执行时间"></div>
+                        </div>
+                        <div class="clearfix form-div">
+                            <label style="text-align:right;" class="col-sm-1 control-label">执行操作
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="执行一个GET/POST操作，在content填写GET网址,发送邮件则在content填写邮件内容"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control exec" name="exec">
+                                    <option value="get">GET请求</option>
+                                    <option value="post">POST请求</option>
+                                    <option value="multiGet">批量GET</option>
+                                    <option value="multiPost">批量POST</option>
+                                    <option value="email">发送邮件</option>
+                                    <option value="multiEmail">批量发送邮件</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div aboutEmail" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">邮件服务器
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="如果没有服务器选择,请在邮箱设置里面先添加"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="smtp_server">
+                                    {{range $k,$v:=.smtpService}}
+                                        <option value="{{$v.Account}}">{{$v.Account}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div aboutEmail" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">邮件标题</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="email_title" value="" placeholder="邮件标题">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div aboutEmail" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">发件人名称</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="send_name" value="" placeholder="发件人名称">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div aboutEmail" style="display: none">
+                            <label style="text-align:right;" class="col-sm-1 control-label">收件人
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="若批量邮件请选择批量邮件列表,没有列表请先添加"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="email_users_key" style="display: none">
+                                    {{range $k,$v:=.multiUsers}}
+                                        <option value="{{$v}}">{{$v}}</option>
+                                    {{end}}
+                                </select>
+                                <input type="text" class="form-control" name="email_users" style="display: none" placeholder="发件人名称">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div baseExec">
+                            <label style="text-align:right;" class="col-sm-1 control-label">执行内容
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="如果批量GET/POST请求操作请用英文符号|分隔网址：https://mmoga.com|https://mmoga.de"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <textarea class="form-control content" name="content" placeholder="请输入需要请求完整网址如：https://www.mmoga.com/" style="min-height:200px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div timeOut">
+                            <label style="text-align:right;" class="col-sm-1 control-label">成功字符串
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title='GET/POST请求设置成功字符串,例如返回"success"代表成功'></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="success_flag" value="success" placeholder="成功标记字符串">
+                            </div>
+                        </div>
+                        <div class="clearfix form-div timeOut">
+                            <label style="text-align:right;" class="col-sm-1 control-label">请求超时
+                                <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="GET/POST请求可设置超时"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="time_out">
+                                    <option value="30">30秒</option>
+                                    <option value="60">60秒</option>
+                                    <option value="180">180秒</option>
+                                    <option value="360" >360秒</option>
+                                    <option value="3600">1小时</option>
+                                    <option value="86400">24小时</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix form-div retry_num">
+                            <label style="text-align:right;" class="col-sm-1 control-label">失败重试次数
+                            <i data-toggle="tooltip" class="fa fa-question-circle" data-original-title="单个GET/POST请求的url返回值跟上面返回的成功标志不一样的情况下间隔1分钟后再次执行操作，重复运行且频率高的任务不建议设置"></i>
+                            </label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="retry_num">
+                                    <option value="0" >0次</option>
+                                    <option value="1" >1次</option>
+                                    <option value="2" >2次</option>
+                                    <option value="3" >3次</option>
+                                    <option value="4" >4次</option>
+                                    <option value="5" >5次</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-sm-offset-2">
+                                <div class="col-xs-12 col-sm-8">
+                                    <button type="button" class="btn btn-success btn-embossed submitForm">保存</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    $('.submitForm').click(function() {
+                        $.ajax({
+                            url: $("#formBox").attr("action"),//AddJobApi
+                            type: $("#formBox").attr("method"),
+                            dataType: 'json',
+                            data:$("#formBox").serialize(),
+                            beforeSend:LoadingStart(),
+                            success:function(res){
+                                LoadingEnd();
+                                layer.msg(res.msg);
+                                if(res.code==2000){
+                                    setTimeout(function(){location.href=res.redirectUrl},1000)
+                                }
+                            },
+                            error:function(){
+                                LoadingEnd();
+                            }
+                        });
+                        // $("#formBox").submit();
+                    });
+                    //执行操作的内容
+                    $(".exec").change(function(){
+                        var method = $("select[name='exec']").val();
+
+                        if(method=="get"||method=="post"){
+                            $(".timeOut").css("display","block");
+                            $(".aboutEmail").css("display","none");
+                            $(".watchKey").css("display","none");
+                            $('.content').attr('placeholder','请输入需要请求完整网址如：https://www.mmoga.com/')
+                        }
+
+                        if(method=="watchList"){
+                            $("select[name='isRepeat']").val("1");//设置是重复运行的
+                            $(".retry_num").css("display","none");
+                            $(".timeOut").css("display","none");
+                            $(".aboutEmail").css("display","none");
+                            $(".watchKey").css("display","block");
+                            $('.content').attr('placeholder','请输入Key发生变化的时候要执行GET请求的URL地址,如需请求多个URL请用|分隔')
+                        }
+
+                        if(method=="multiGet"||method=="multiPost"){
+                            $(".retry_num").css("display","none");
+                            $(".timeOut").css("display","block");
+                            $(".aboutEmail").css("display","none");
+                            $(".watchKey").css("display","none");
+                            $('.content').attr('placeholder','批量GET/POST操作,请用英文符号|分隔网址：https://mmoga.com|https://mmoga.de')
+                        }
+
+                        if(method=='multiEmail'||method=='email'){
+                            $(".retry_num").css("display","none");
+                            $(".aboutEmail").css("display","block");
+                            $(".watchKey").css("display","none");
+                            $(".timeOut").css("display","none");
+                            if(method=="email"){
+                                $("input[name='email_users']").css("display","inline-block");
+                                $("select[name='email_users_key']").css("display","none");
+                                var placeHolder = "请输入收件人邮箱，如123456@xx.com"
+                                $("textarea[name='email_users']").attr('placeholder',placeHolder).css("min-height","30px");
+                            }else{
+                                $("input[name='email_users']").css("display","none");
+                                $("select[name='email_users_key']").css("display","inline-block");
+                                var placeHolder = "请输入收件人邮箱,多个收件人用|隔开,如12@qq.com|34@qq.com"
+                                $("textarea[name='email_users']").attr('placeholder',placeHolder).css("min-height","100px");
+                            }
+
+                            $('.content').attr('placeholder','请输入需要发送的邮件内容');
+                        }
+                    });
+
+                    var now = new Date();
+                    var minDay = now.getFullYear()+"-" + (now.getMonth()+1) + "-" + now.getDate();
+                    var maxDay = now.getFullYear()+1+"-" + (now.getMonth()+1) + "-" + now.getDate();
+                    laydate.render({
+                        elem: '#run_datetime'
+                        ,type: 'datetime'
+                        ,trigger: 'click'
+                        ,min:minDay
+                        ,max:maxDay
+                    });
+
+                    $(".isRepeat").change(function(){
+                        var isRepeat = $("select[name='isRepeat']").val();
+                        console.log(isRepeat)
+                        if(isRepeat=="1"){
+                            $(".runBetween").css("display","block");//禁用运行间隙
+                            //$(".retry_num").css("display","none");//禁用失败运行次数
+                        }else{
+                            $(".runBetween").css("display","none");//禁用运行间隙
+                            //$(".retry_num").css("display","block");//启用失败运行次数
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+</div>
+{{template "commonFooter" .}}
+{{ end }}
