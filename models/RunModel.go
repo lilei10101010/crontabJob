@@ -10,15 +10,6 @@ import (
 	"time"
 )
 
-var (
-	OnceProcessNum   int  = 10000 //只执行一次任务的设定的协程数量
-	OnceNowNum       int  = 0     //设定的协程数量
-	AlwaysProcessNum int  = 0     //当前重复运行的任务协程数量
-	ProcessNum       int  = 0     //当前协程数量
-	FirstOnceJob     bool = true  //初始化系统的时候,加载之前没有完成的任务
-	FirstSecondJob   bool = false //初始化系统的时候,加载之前没有完成的任务
-)
-
 func HandelWatchKey(key string) {
 	lenNum, err := common.RedisClient.LLen(key).Result()
 	if err != nil {
@@ -117,7 +108,6 @@ func RunRepeatSecond() {
 	if needOpenNum > 0 {
 		for i := 0; i < needOpenNum; i++ {
 			go HandelMultiJob("GoJob_runAlways_second", needOpenNum) //执行任务
-			AlwaysProcessNum = AlwaysProcessNum + 1                  //重复运行任务的协程数量+1
 		}
 	} else {
 		if common.NowTimeInt()%60 == 0 {
@@ -137,7 +127,6 @@ func RunRepeatMinute() {
 	if needOpenNum > 0 {
 		for i := 0; i < needOpenNum; i++ {
 			go HandelMultiJob("GoJob_runAlways_minute", needOpenNum) //执行任务
-			AlwaysProcessNum = AlwaysProcessNum + 1                  //重复运行任务的协程数量+1
 		}
 	} else {
 		if common.NowTimeInt()%60 == 0 {
@@ -149,8 +138,7 @@ func RunRepeatMinute() {
 //运行一次的任务
 func RunOnce() {
 	//如果是第一次启动或者能整除60的检查一次等待运行的任务
-	if FirstOnceJob == true || common.NowTimeInt()%60 == 0 {
-		FirstOnceJob = false
+	if common.NowTimeInt()%60 == 0 {
 		waitResult, waitErr := common.RedisClient.LRange("GoJob_WaitingToRunTask", 0, -1).Result()
 		if waitErr != nil {
 			common.FileLog("server", "RunOnce waiting Job lrange error", waitErr)
@@ -234,9 +222,8 @@ func AlwaysSecondJobDetail(KeyName string) {
 		nowTime64 := common.NowTimeInt() //当前时间戳
 		//秒级间隙任务,且间隙小于2秒的,直接就运行
 		if betWeenNum <= 60 && data.RunBetween == "second" {
-			if nowTime64%betWeenNum == 0 || FirstSecondJob == false {
+			if nowTime64%betWeenNum == 0 {
 				runNow = true
-				FirstSecondJob = true
 			}
 		} else {
 			//获取上次运行的时间
@@ -390,7 +377,6 @@ func readyToRun(key string, s CronJob) {
 			//删除运行中的任务，过期时间太长了,不再执行了
 			common.FileLog("runningLog", key+"任务过期时间超过10分钟,不执行了"+s.Content)
 			common.RedisClient.LRem("GoJob_WaitingToRunTask", 1, key)
-			OnceNowNum = OnceNowNum - 1
 			return
 		}
 
@@ -429,7 +415,6 @@ func readyToRun(key string, s CronJob) {
 		if smtpConfig.Account == "" || smtpConfig.Host == "" || smtpConfig.Password == "" || smtpConfig.Port == "" {
 			//删除运行中的任务
 			common.RedisClient.LRem("GoJob_WaitingToRunTask", 1, key)
-			OnceNowNum = OnceNowNum - 1
 			common.FileLog("runningLog", key+" "+s.Exec+" 邮件配置不完整")
 			return
 		}
@@ -480,7 +465,6 @@ func readyToRun(key string, s CronJob) {
 
 	//删除运行中的任务
 	common.RedisClient.LRem("GoJob_WaitingToRunTask", 1, key)
-	OnceNowNum = OnceNowNum - 1
 }
 
 //multiGet 不做失败重试

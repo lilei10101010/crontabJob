@@ -3,6 +3,7 @@ package common
 import (
 	"github.com/go-redis/redis/v7"
 	"github.com/jinzhu/gorm"
+	"sync"
 	"time"
 )
 
@@ -10,8 +11,10 @@ var (
 	DB_CLIENT       *gorm.DB
 	Redis_Connected bool
 	RedisClient     *redis.Client
-	TIME_ZONE       *time.Location //时区设置,在入口文件的地方就设置了
-	ROOTPATH        string         //根目录
+	TIME_ZONE       *time.Location         //时区设置,在入口文件的地方就设置了
+	ROOTPATH        string                 //根目录
+	LockQueue       sync.Mutex             //给QueueStruct加锁
+	ProcessNum      int            = 10000 //最大并发量
 )
 
 //redis连接配置

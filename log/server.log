@@ -1,0 +1,575 @@
+2021-02-07 11:40:10 GET启动成功!
+2021-02-07 11:40:10 RunRepeatMinute启动成功!
+2021-02-07 11:40:10 WatchKey启动成功!
+2021-02-07 11:40:10 RunOnce启动成功!
+2021-02-07 11:45:43 GET启动成功!
+2021-02-07 11:45:44 RunRepeatMinute启动成功!
+2021-02-07 11:45:44 WatchKey启动成功!
+2021-02-07 11:45:44 RunOnce启动成功!
+2021-02-07 11:47:12 GET启动成功!
+2021-02-07 11:47:12 RunRepeatMinute启动成功!
+2021-02-07 11:47:12 WatchKey启动成功!
+2021-02-07 11:47:12 RunOnce启动成功!
+2021-02-07 11:49:24 GET启动成功!
+2021-02-07 11:49:24 RunRepeatMinute启动成功!
+2021-02-07 11:49:24 WatchKey启动成功!
+2021-02-07 11:49:24 RunOnce启动成功!
+2021-02-07 11:51:27 GET启动成功!
+2021-02-07 11:51:27 RunRepeatMinute启动成功!
+2021-02-07 11:51:27 WatchKey启动成功!
+2021-02-07 11:51:27 RunOnce启动成功!
+2021-02-07 11:57:11 WatchKey获取keys出错read tcp 127.0.0.1:56599->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-07 11:57:11 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56645->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-07 11:57:11 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56600->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-07 11:57:11 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56603->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-07 11:57:12 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:56597->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 11:57:12 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:56598->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 12:58:25 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:59608->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 12:58:25 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:59528->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 13:12:29 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:61242->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:04:21 GET启动成功!
+2021-02-07 14:04:21 RunRepeatMinute启动成功!
+2021-02-07 14:04:21 WatchKey启动成功!
+2021-02-07 14:04:21 RunOnce启动成功!
+2021-02-07 14:07:08 GET启动成功!
+2021-02-07 14:07:08 RunRepeatMinute启动成功!
+2021-02-07 14:07:08 WatchKey启动成功!
+2021-02-07 14:07:08 RunOnce启动成功!
+2021-02-07 14:09:43 GET启动成功!
+2021-02-07 14:09:43 RunRepeatMinute启动成功!
+2021-02-07 14:09:43 WatchKey启动成功!
+2021-02-07 14:09:43 RunOnce启动成功!
+2021-02-07 14:19:12 GET启动成功!
+2021-02-07 14:19:12 RunRepeatMinute启动成功!
+2021-02-07 14:19:12 WatchKey启动成功!
+2021-02-07 14:19:12 RunOnce启动成功!
+2021-02-07 14:21:55 GET启动成功!
+2021-02-07 14:21:55 RunRepeatMinute启动成功!
+2021-02-07 14:21:55 WatchKey启动成功!
+2021-02-07 14:21:55 RunOnce启动成功!
+2021-02-07 14:22:08 GET启动成功!
+2021-02-07 14:22:08 RunRepeatMinute启动成功!
+2021-02-07 14:22:08 WatchKey启动成功!
+2021-02-07 14:22:08 RunOnce启动成功!
+2021-02-07 14:28:38 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:65182->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:28:38 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:65184->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:28:38 WatchKey获取keys出错write tcp 127.0.0.1:65293->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:28:38 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:65183->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:28:39 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:65188->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:28:39 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:65181->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:39:42 WatchKey获取keys出错write tcp 127.0.0.1:49951->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 14:39:42 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:50047->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 15:25:19 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": read tcp 192.168.0.178:52376->120.78.137.158:443: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-07 15:25:20 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:52393->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 15:55:47 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:53241->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 16:00:54 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 16:00:55 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 16:00:56 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 16:00:57 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 17:10:21 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": read tcp 192.168.2.178:59196->120.78.137.158:443: wsarecv: An established connection was aborted by the software in your host machine.
+2021-02-07 17:10:22 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 17:10:23 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 17:10:24 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": dial tcp: lookup www.buruyouni.com: no such host
+2021-02-07 17:36:10 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:57143->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 17:36:10 WatchKey获取keys出错write tcp 127.0.0.1:58378->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 17:36:10 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:59552->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 17:58:56 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:64978->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-07 17:58:56 WatchKey获取keys出错write tcp 127.0.0.1:64658->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:15:23 WatchKey获取keys出错write tcp 127.0.0.1:62033->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:15:23 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:65495->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:15:23 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:56514->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:34:28 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:60960->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:45:41 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:61327->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 09:45:41 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:61326->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 10:29:56 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:62065->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 10:29:56 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:62592->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 12:50:11 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:52179->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 12:50:11 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:63972->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 12:50:11 WatchKey获取keys出错write tcp 127.0.0.1:63906->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 13:22:28 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:53371->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 13:22:28 GoJob_detail_repeat_1acc7ec7c90ce4a5920a9d0578e3863a HandelOnceJob json解析出错,
+unexpected end of JSON input
+2021-02-08 13:56:34 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:54824->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-08 13:56:34 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:54522->127.0.0.1:6379: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-08 14:16:28 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:56278->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 14:16:28 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:56172->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 14:42:36 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:57919->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 14:42:37 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:57920->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 14:55:28 WatchKey获取keys出错write tcp 127.0.0.1:60017->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 14:55:31 WatchKey获取keys出错write tcp 127.0.0.1:60016->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 15:27:35 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": read tcp 192.168.0.178:63234->120.78.137.158:443: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-08 15:27:36 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:61568->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 15:27:36 WatchKey获取keys出错write tcp 127.0.0.1:61565->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 15:34:51 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:64495->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 15:35:55 WatchKey获取keys出错write tcp 127.0.0.1:64496->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 15:39:37 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:65388->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:16:12 获取数据出错RunRepeatSecond
+write tcp 127.0.0.1:51739->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:16:12 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:49370->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:19:08 获取数据出错RunRepeatMinute
+write tcp 127.0.0.1:52306->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:36:45 GoJob_detail_repeat_1acc7ec7c90ce4a5920a9d0578e3863a HandelOnceJob json解析出错,
+unexpected end of JSON input
+2021-02-08 16:43:38 发生致命错误Get "https://www.buruyouni.com/spider/request?rid=repeatGet1S": read tcp 192.168.0.178:53281->120.78.137.158:443: wsarecv: An attempt was made to access a socket in a way forbidden by its access permissions.
+2021-02-08 16:43:39 WatchKey获取keys出错write tcp 127.0.0.1:52657->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:43:39 获取数据出错GoJob_runOnce
+write tcp 127.0.0.1:54847->127.0.0.1:6379: wsasend: An existing connection was forcibly closed by the remote host.
+2021-02-08 16:53:51 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56323->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:51 WatchKey获取keys出错read tcp 127.0.0.1:61833->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:51 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56304->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:51 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:52255->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:52 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:54435->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:52 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56516->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:52 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:59828->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:52 WatchKey获取keys出错read tcp 127.0.0.1:56517->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:53 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56518->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:53 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56521->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:53 WatchKey获取keys出错read tcp 127.0.0.1:56520->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:53 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56519->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:54 WatchKey获取keys出错read tcp 127.0.0.1:56525->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:54 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56522->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:54 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56524->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:54 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56523->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:55 WatchKey获取keys出错read tcp 127.0.0.1:56528->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:55 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56527->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:55 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56526->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:55 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56529->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:56 WatchKey获取keys出错read tcp 127.0.0.1:56532->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:56 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56531->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:56 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56533->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:56 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56530->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:57 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56536->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:57 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56534->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:57 WatchKey获取keys出错read tcp 127.0.0.1:56537->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:57 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56535->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:58 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56539->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:58 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56540->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:58 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56538->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:58 WatchKey获取keys出错read tcp 127.0.0.1:56541->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:59 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56544->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:59 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56545->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:59 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56543->127.0.0.1:6379: i/o timeout
+2021-02-08 16:53:59 WatchKey获取keys出错read tcp 127.0.0.1:56546->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:00 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56549->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:00 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56548->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:00 WatchKey获取keys出错read tcp 127.0.0.1:56551->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:00 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56550->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:01 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56554->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:01 WatchKey获取keys出错read tcp 127.0.0.1:56555->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:01 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56553->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:01 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56556->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:02 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56557->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:02 WatchKey获取keys出错read tcp 127.0.0.1:56559->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:02 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56558->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:02 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56560->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:03 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56562->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:03 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56564->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:03 RunOnce waiting Job lrange error
+read tcp 127.0.0.1:56561->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:03 WatchKey获取keys出错read tcp 127.0.0.1:56563->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:04 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56566->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:04 WatchKey获取keys出错read tcp 127.0.0.1:56567->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:04 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56568->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:04 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56565->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:05 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56570->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:05 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56569->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:05 WatchKey获取keys出错read tcp 127.0.0.1:56571->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:05 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56572->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:06 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56574->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:06 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56573->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:06 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56576->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:06 WatchKey获取keys出错read tcp 127.0.0.1:56575->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:07 WatchKey获取keys出错read tcp 127.0.0.1:56579->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:07 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56577->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:07 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56578->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:07 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56580->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:08 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56583->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:08 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56584->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:08 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56585->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:08 WatchKey获取keys出错read tcp 127.0.0.1:56586->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:09 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56588->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:09 WatchKey获取keys出错read tcp 127.0.0.1:56590->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:09 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56591->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:09 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56589->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:10 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56594->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:10 WatchKey获取keys出错read tcp 127.0.0.1:56595->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:10 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56592->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:10 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56593->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:11 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56597->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:11 WatchKey获取keys出错read tcp 127.0.0.1:56598->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:11 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56599->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:11 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56596->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:12 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56602->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:12 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56601->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:12 WatchKey获取keys出错read tcp 127.0.0.1:56603->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:12 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56604->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:13 WatchKey获取keys出错read tcp 127.0.0.1:56608->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:13 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56609->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:13 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56606->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:13 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56607->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:14 WatchKey获取keys出错read tcp 127.0.0.1:56615->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:14 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56613->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:14 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56616->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:14 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56614->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:15 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56617->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:15 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56620->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:15 WatchKey获取keys出错read tcp 127.0.0.1:56619->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:15 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56618->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:16 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56621->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:16 WatchKey获取keys出错read tcp 127.0.0.1:56622->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:16 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56623->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:16 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56624->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:17 WatchKey获取keys出错read tcp 127.0.0.1:56628->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:17 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56626->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:17 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56627->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:17 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56625->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:18 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56631->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:18 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56632->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:18 WatchKey获取keys出错read tcp 127.0.0.1:56634->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:18 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56633->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:19 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56637->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:19 WatchKey获取keys出错read tcp 127.0.0.1:56639->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:19 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56638->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:19 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56636->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:20 WatchKey获取keys出错read tcp 127.0.0.1:56643->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:20 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56642->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:20 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56644->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:20 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56641->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:21 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56648->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:21 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56645->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:21 WatchKey获取keys出错read tcp 127.0.0.1:56647->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:21 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56646->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:22 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56649->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:22 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56650->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:22 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56651->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:22 WatchKey获取keys出错read tcp 127.0.0.1:56652->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:23 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56653->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:23 WatchKey获取keys出错read tcp 127.0.0.1:56655->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:23 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56656->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:23 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56654->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:24 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56659->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:24 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56657->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:24 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56658->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:24 WatchKey获取keys出错read tcp 127.0.0.1:56660->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:25 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56662->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:25 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56664->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:25 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56661->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:25 WatchKey获取keys出错read tcp 127.0.0.1:56663->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:26 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56666->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:26 WatchKey获取keys出错read tcp 127.0.0.1:56667->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:26 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56665->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:26 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56668->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:27 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56672->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:27 WatchKey获取keys出错read tcp 127.0.0.1:56669->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:27 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56670->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:27 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56671->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:28 WatchKey获取keys出错read tcp 127.0.0.1:56675->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:28 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56673->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:28 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56676->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:28 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56674->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:29 WatchKey获取keys出错read tcp 127.0.0.1:56679->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:29 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56678->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:29 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56680->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:29 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56677->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:30 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56682->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:30 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56681->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:30 WatchKey获取keys出错read tcp 127.0.0.1:56684->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:30 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56683->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:31 WatchKey获取keys出错read tcp 127.0.0.1:56685->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:31 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56688->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:31 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56686->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:31 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56687->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:32 WatchKey获取keys出错read tcp 127.0.0.1:56692->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:32 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56690->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:32 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56691->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:32 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56693->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:33 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56696->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:33 WatchKey获取keys出错read tcp 127.0.0.1:56698->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:33 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56699->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:33 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56697->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:34 WatchKey获取keys出错read tcp 127.0.0.1:56702->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:34 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56701->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:34 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56700->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:34 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56703->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:35 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56704->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:35 WatchKey获取keys出错read tcp 127.0.0.1:56706->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:35 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56705->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:35 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56707->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:36 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56712->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:36 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56711->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:36 WatchKey获取keys出错read tcp 127.0.0.1:56713->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:36 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56714->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:37 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56716->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:37 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56719->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:37 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56717->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:37 WatchKey获取keys出错read tcp 127.0.0.1:56718->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:38 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56723->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:38 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56721->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:38 WatchKey获取keys出错read tcp 127.0.0.1:56722->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:38 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56720->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:39 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56724->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:39 WatchKey获取keys出错read tcp 127.0.0.1:56726->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:39 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56725->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:39 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56727->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:40 WatchKey获取keys出错read tcp 127.0.0.1:56731->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:40 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56728->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:40 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56729->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:40 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56730->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:41 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56734->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:41 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56736->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:41 WatchKey获取keys出错read tcp 127.0.0.1:56735->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:41 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56733->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:42 获取数据出错RunRepeatSecond
+read tcp 127.0.0.1:56737->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:42 WatchKey获取keys出错read tcp 127.0.0.1:56739->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:42 获取数据出错RunRepeatMinute
+read tcp 127.0.0.1:56738->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:42 获取数据出错GoJob_runOnce
+read tcp 127.0.0.1:56740->127.0.0.1:6379: i/o timeout
+2021-02-08 16:54:42 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:42 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:42 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:42 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:43 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:43 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:43 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:43 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:44 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:44 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:44 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:44 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:45 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:45 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:45 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:45 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:46 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:46 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:46 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:46 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:47 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:47 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:47 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:47 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:48 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:48 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:48 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:48 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:49 获取数据出错RunRepeatMinute
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:49 WatchKey获取keys出错dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:49 获取数据出错RunRepeatSecond
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.
+2021-02-08 16:54:49 获取数据出错GoJob_runOnce
+dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it.

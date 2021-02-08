@@ -1,0 +1,66 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (22): 
+	- commonHeader
+	- adminLogin.html
+	- emailServer.html
+	- logList.html
+	- queue.html
+	- receiveDetail.html
+	- receiveUsers.html
+	- accountAdd.html
+	- addCronjob.html
+	- adminAccount.html
+	- logDetail.html
+	- addServer.html
+	- queueAdd.html
+	- receiveAdd.html
+	- 
+	- commonFooter
+	- Header.html
+	- Left.html
+	- Footer.html
+	- commonLeft
+	- jobLog.html
+	- systemIndex.html
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /                         --> cronJob/controllers.LoginPage (5 handlers)
+[GIN-debug] GET    /LoginPage                --> cronJob/controllers.LoginPage (5 handlers)
+[GIN-debug] POST   /LoginApi                 --> cronJob/controllers.LoginApi (5 handlers)
+[GIN-debug] GET    /LoginOut                 --> cronJob/controllers.LoginOut (5 handlers)
+[GIN-debug] GET    /SystemIndex              --> cronJob/controllers.SystemIndex (5 handlers)
+[GIN-debug] GET    /AddCronJob               --> cronJob/controllers.AddCronJob (5 handlers)
+[GIN-debug] POST   /AddJobApi                --> cronJob/controllers.AddJobApi (5 handlers)
+[GIN-debug] POST   /EditJobApi               --> cronJob/controllers.EditJobApi (5 handlers)
+[GIN-debug] POST   /DeleteJobApi             --> cronJob/controllers.DeleteJobApi (5 handlers)
+[GIN-debug] GET    /JobLog                   --> cronJob/controllers.JobLog (5 handlers)
+[GIN-debug] POST   /ADetailJob               --> cronJob/controllers.ADetailJob (5 handlers)
+[GIN-debug] GET    /EmailServer              --> cronJob/controllers.EmailServer (5 handlers)
+[GIN-debug] GET    /AddSmtp                  --> cronJob/controllers.AddSmtp (5 handlers)
+[GIN-debug] POST   /AddSmtpApi               --> cronJob/controllers.AddSmtpApi (5 handlers)
+[GIN-debug] POST   /DeleteSmtp               --> cronJob/controllers.DeleteSmtp (5 handlers)
+[GIN-debug] GET    /ReceiveUsers             --> cronJob/controllers.ReceiveUsers (5 handlers)
+[GIN-debug] GET    /UpdateEmailUsers         --> cronJob/controllers.UpdateEmailUsers (5 handlers)
+[GIN-debug] GET    /AddEmailUsers            --> cronJob/controllers.AddEmailUsers (5 handlers)
+[GIN-debug] POST   /UploadFile               --> cronJob/controllers.UploadFile (5 handlers)
+[GIN-debug] POST   /AddEmailApi              --> cronJob/controllers.AddEmailApi (5 handlers)
+[GIN-debug] POST   /DeleteEmailApi           --> cronJob/controllers.DeleteEmailApi (5 handlers)
+[GIN-debug] GET    /AdminAccount             --> cronJob/controllers.AdminAccount (5 handlers)
+[GIN-debug] GET    /AddAccount               --> cronJob/controllers.AddAccount (5 handlers)
+[GIN-debug] POST   /AddAccountApi            --> cronJob/controllers.AddAccountApi (5 handlers)
+[GIN-debug] POST   /UpateAccount             --> cronJob/controllers.UpateAccount (5 handlers)
+[GIN-debug] POST   /DeleteAccount            --> cronJob/controllers.DeleteAccount (5 handlers)
+[GIN-debug] GET    /Queue                    --> cronJob/controllers.QueueList (5 handlers)
+[GIN-debug] GET    /QueueAdd                 --> cronJob/controllers.QueueAdd (5 handlers)
+[GIN-debug] POST   /QueueAddApi              --> cronJob/controllers.QueueAddApi (5 handlers)
+[GIN-debug] POST   /QueueDelApi              --> cronJob/controllers.QueueDelApi (5 handlers)
+[GIN-debug] GET    /Logs                     --> cronJob/controllers.Logs (5 handlers)
+[GIN-debug] GET    /DownLog                  --> cronJob/controllers.DownLog (5 handlers)
+[GIN-debug] GET    /ViewLog                  --> cronJob/controllers.ViewLog (5 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9527
